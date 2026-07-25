@@ -156,8 +156,10 @@ Entorno Cloud: Oracle Linux / Ubuntu Server en OCI.
 
 Estado de la Instancia: Active / Running
 
-Ip Pública / Endpoint de prueba: http://<IP_PUBLICA_OCI>:8000 (O adjunta captura de pantalla en la carpeta /img)
+Ip Pública / Endpoint de prueba: http://<IP_PUBLICA_OCI>:8000 
 ```
+[![Captura pantalla]([https://img.shields.io/badge/OCI-Compute%20Deployed-F80000?style=flat&logo=oracle](https://www.linkedin.com/in/yael-astorga-computer-science-student/))]
+
 
 ## Autor / Créditos
 Desarrollado como parte del Challenge Alura Latam & Oracle Next Education (ONE).
