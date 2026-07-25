@@ -92,13 +92,17 @@ python src/agente_constructora.py
 ```
 
 ## Deploy en Oracle Cloud Infrastructure (OCI)
-La aplicación se encuentra desplegada y ejecutándose en una instancia OCI Compute.
+El agente está diseñado para ejecutarse tanto en entornos locales/Colab como desplegado en una instancia **OCI Compute (Ampere ARM / Ubuntu 22.04)** de Oracle Cloud Infrastructure.
 
+Para ver las instrucciones detalladas de aprovisionamiento de servidor, configuración de entorno, variables y daemonización con `systemd`, consulta la [Guía de Despliegue en OCI (DEPLOYMENT.md)](./DEPLOYMENT.md).
+
+```
 Entorno Cloud: Oracle Linux / Ubuntu Server en OCI.
 
 Estado de la Instancia: Active / Running
 
 Ip Pública / Endpoint de prueba: http://<IP_PUBLICA_OCI>:8000 (O adjunta captura de pantalla en la carpeta /img)
+```
 
 ## Autor / Créditos
 Desarrollado como parte del Challenge Alura Latam & Oracle Next Education (ONE).
