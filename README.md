@@ -18,6 +18,60 @@ En las empresas de la construcción, la información crítica suele encontrarse 
 
 El agente utiliza un orquestador basado en la lógica **ReAct (Reasoning + Acting)** que enruta las preguntas del usuario hacia la herramienta especializada según el tipo de consulta:
 
+El siguiente diagrama detalla el flujo de datos y razonamiento del agente orquestador ReAct:
+
+```mermaid
+flowchart TD
+    %% Estilos de Nodos
+    classDef userStyle fill:#0284c7,stroke:#0369a1,stroke-width:2px,color:#fff;
+    classDef agentStyle fill:#0f766e,stroke:#115e59,stroke-width:2px,color:#fff;
+    classDef toolStyle fill:#d97706,stroke:#b45309,stroke-width:2px,color:#fff;
+    classDef dataStyle fill:#334155,stroke:#1e293b,stroke-width:2px,color:#fff;
+    classDef llmStyle fill:#6b21a8,stroke:#581c87,stroke-width:2px,color:#fff;
+
+    %% Nodos Principales
+    Usuario([Usuario / Cliente / Admin]):::userStyle
+    Agente[Agente Orquestador ReAct
+Gemini 1.5 Flash]:::agentStyle
+    
+    %% Herramientas
+    ToolRAG[Herramienta 1: RAG PDF
+Proyectos y Catálogo]:::toolStyle
+    ToolInv[Herramienta 2: Consultas CSV
+Inventario de Materiales]:::toolStyle
+    ToolNom[Herramienta 3: Consultas CSV
+Nómina y Personal]:::toolStyle
+    
+    %% Almacenamiento y Datos
+    VectorDB[(ChromaDB
+Embeddings text-embedding-004)]:::dataStyle
+    PDFData[catalogo_y_proyectos.pdf]:::dataStyle
+    CSVInv[inventario_materiales.csv]:::dataStyle
+    CSVNom[nomina_y_personal.csv]:::dataStyle
+
+    %% Conexiones
+    Usuario <-->|Preguntas / Respuestas| Agente
+    Agente -->|Razonamiento y Enrutamiento| ToolRAG
+    Agente -->|Razonamiento y Enrutamiento| ToolInv
+    Agente -->|Razonamiento y Enrutamiento| ToolNom
+    
+    ToolRAG <-->|Búsqueda Vectorial| VectorDB
+    PDFData -->|Chunking & Embeddings| VectorDB
+    
+    ToolInv <-->|Lectura & Filtrado Structured Data| CSVInv
+    ToolNom <-->|Lectura & Filtrado Structured Data| CSVNom
+```
+
+### Componentes del Sistema
+
+1. **Agente Orquestador (ReAct - Gemini 1.5 Flash):**
+   * Recibe la consulta en lenguaje natural y decide de forma autónoma cuál herramienta invocar según la intención detectada.
+2. **Herramienta 1: RAG PDF (Catálogo y Proyectos):**
+   * Realiza búsqueda semántica sobre documentos no estructurados (`catalogo_y_proyectos.pdf`) utilizando **ChromaDB** y **Google Text Embeddings**.
+3. **Herramienta 2: Gestión de Inventario (CSV):**
+   * Consulta datos estructurados (`inventario_materiales.csv`) para responder sobre stock, ubicaciones en bodega y precios al por mayor.
+4. **Herramienta 3: Nómina y Personal (CSV):**
+   * Consulta datos estructurados (`nomina_y_personal.csv`) sobre el equipo de trabajo, certificaciones, subcontratistas y posibilidades de ascenso.
 
 
 ## Stack Tecnológico
@@ -44,6 +98,7 @@ El agente utiliza un orquestador basado en la lógica **ReAct (Reasoning + Actin
 │   └── generate_data.py           # Generador del dataset inicial
 ├── .env.example                   # Plantilla de variables de entorno
 ├── requirements.txt               # Lista de dependencias del proyecto
+├── .gitignore                     # Archivos excluidos del control de versiones
 └── README.md                      # Documentación del proyecto
 ```
 
