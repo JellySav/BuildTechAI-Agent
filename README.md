@@ -7,7 +7,7 @@
 [![Oracle Cloud](https://img.shields.io/badge/OCI-Compute%20Deployed-F80000?style=flat&logo=oracle)](https://www.oracle.com/cloud/)
 
 > **Proyecto desarrollado para el Challenge Alura Latam / Oracle Cloud Infrastructure (OCI)**  
-> Agente multi-herramienta con IA capaz de resolver consultas operativas en lenguaje natural sobre **Captación de Clientes y Proyectos**, **Gestión de Inventario** y **Nómina de Personal/Subcontratistas** para la empresa *Constructora Nova Build SpA*.
+> Es un Agente multi-herramienta con IA capaz de resolver consultas operativas en lenguaje natural sobre **Captación de Clientes y Proyectos**, **Gestión de Inventario** y **Nómina de Personal/Subcontratistas** para la empresa *Constructora Nova Build SpA*.
 
 
 ## Contexto del Problema
@@ -146,19 +146,30 @@ El agente está diseñado para ejecutarse tanto en entornos locales/Colab como d
 
 Para ver las instrucciones detalladas de aprovisionamiento de servidor, configuración de entorno, variables y daemonización con `systemd`, consulta la [Guía de Despliegue en OCI (DEPLOYMENT.md)](./DEPLOYMENT.md).
 
+
+# Evidencia de Despliegue en OCI
+
+Puedes revisarlo a través de su IP pública:
 ```
 Entorno Cloud: Oracle Linux / Ubuntu Server en OCI.
-
 Estado de la Instancia: Active / Running
-
 Ip Pública / Endpoint de prueba: http://<IP_PUBLICA_OCI>:8000 
 ```
-[![Captura pantalla]([https://img.shields.io/badge/OCI-Compute%20Deployed-F80000?style=flat&logo=oracle](https://www.linkedin.com/in/yael-astorga-computer-science-student/))]
+*Nota: Si se consulta posteriormente a la revisión del reto, es probable que no esté disponible debido al ciclo de vida del servidor*
+
+
+También puedes verificar la ejecución mediante las siguientes capturas de pantalla:
+
+![OCI Endpoint](docs/img/oci_endpoint_verificated.png)
+*Captura de pantalla: Respuesta del endpoint HTTP en el puerto 8000.*
+
+![Systemd Status](docs/img/oci_systemd_status.png)
+*Captura de pantalla 2: Estado del servicio daemonizado en la instancia OCI.*
 
 
 ## Autor / Créditos
+
 Desarrollado como parte del Challenge Alura Latam & Oracle Next Education (ONE).
 
-Desarrollado por: Yael (Eavny)
-
-Contacto / LinkedIn: [![Mi LinkedIn]([https://img.shields.io/badge/OCI-Compute%20Deployed-F80000?style=flat&logo=oracle](https://www.linkedin.com/in/yael-astorga-computer-science-student/))]
+* **Desarrollado por:** Yael (Eavny)
+* **Contacto:** [Mi LinkedIn](https://www.linkedin.com/in/yael-astorga-computer-science-student/)
