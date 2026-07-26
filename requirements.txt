@@ -1,0 +1,8 @@
+langchain
+langchain-google-genai
+langchain-community
+chromadb
+pandas
+pypdf
+python-dotenv
+reportlab
