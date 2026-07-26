@@ -1,0 +1,7 @@
+id_material,material,categoria,stock_actual,unidad,ubicacion_almacen,distribuidor_principal,precio_unitario_clp,precio_al_por_mayor_clp,minimo_por_mayor,estado_stock
+MAT-001,Cemento Melón Especial 25kg,Obra Gruesa,450,Sacos,Bodega Central - Galpón A,Distribuidora El Teniente,4800,4200,100,Disponible
+MAT-002,Fierro Estructural A63-42H 12mm x 12m,Acero y Estructuras,85,Barras,Bodega Central - Patio Exterior,AceroNorte Chile,14500,12800,50,Stock Crítico
+MAT-003,Hormigón Preparado H30,Obra Gruesa,0,m3,Despacho Directo en Obra,ReadyMix Valparaíso,78000,71000,20,Bajo Pedido
+MAT-004,Ladrillo Princesa 29x14x7.1 cm,Albañilería,3200,Unidades,Bodega Central - Galpón B,Cerámicas del Pacífico,420,360,1000,Disponible
+MAT-005,Tubería PVC Hidráulica 110mm x 6m,Instalaciones y Sanitaria,120,Tiras,Bodega Central - Galpón C,Plásticos e Hidráulica Quinta,18900,16500,30,Disponible
+MAT-006,Aislante Lana de Vidrio 50mm 1.2x12m,Aislación y Terminaciones,40,Rollos,Bodega Central - Galpón B,Aislaciones del Puerto,24000,21500,15,Disponible
