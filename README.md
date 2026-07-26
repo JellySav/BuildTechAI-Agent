@@ -121,8 +121,8 @@ Respuesta del Agente: María Paz Salamanca, Ingeniera Civil Estructural, cuenta 
 ## Instalación y Ejecución Local
 1. Clonar el repositorio
 ```Bash
-git clone [https://github.com/tu-usuario/buildtech-ai-agent.git](https://github.com/tu-usuario/buildtech-ai-agent.git)
-cd buildtech-ai-agent
+git clone https://github.com/JellySav/BuildTechAI-Agent.git
+cd BuildTechAI-Agent
 ```
 
 2. Crear un entorno virtual e instalar dependencias
