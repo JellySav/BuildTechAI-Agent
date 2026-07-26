@@ -9,17 +9,15 @@
 > **Proyecto desarrollado para el Challenge Alura Latam / Oracle Cloud Infrastructure (OCI)**  
 > Agente multi-herramienta con IA capaz de resolver consultas operativas en lenguaje natural sobre **Captación de Clientes y Proyectos**, **Gestión de Inventario** y **Nómina de Personal/Subcontratistas** para la empresa *Constructora Nova Build SpA*.
 
----
 
-## 🎯 Contexto del Problema
+## Contexto del Problema
 
 En las empresas de la construcción, la información crítica suele encontrarse dispersa entre catálogos de obras en PDF, hojas de cálculo de insumos de bodega y listas de asistencia o contratos de personal. Esta fragmentación genera pérdida de tiempo operativo y demoras en las respuestas a clientes y directores de obra.
 
 **BuildTech AI Agent** unifica el acceso a estos silos documentales mediante un sistema **RAG (Retrieval-Augmented Generation)** y análisis tabular interactivo.
 
----
 
-## 📐 Arquitectura del Sistema
+## Arquitectura del Sistema
 
 El agente utiliza un orquestador basado en la lógica **ReAct (Reasoning + Acting)** que enruta las preguntas del usuario hacia la herramienta especializada según el tipo de consulta:
 
@@ -80,7 +78,6 @@ flowchart TD
 * **Procesamiento de Datos:** Pandas, PyPDF, WeasyPrint
 * **Infraestructura Cloud:** Oracle Cloud Infrastructure (OCI) — Instancia OCI Compute (Ubuntu Server)
 
----
 
 ## Estructura del Repositorio
 
