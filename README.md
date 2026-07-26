@@ -1,24 +1,27 @@
 # BuildTechAI-Agent — Agente Inteligente para Gestión Constructora
+
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/LangChain-Orchestration-121011?style=flat&logo=chainlink)](https://www.langchain.com/)
 [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-LLM-8E75B2?style=flat&logo=google)](https://ai.google.dev/)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-VectorDB-orange?style=flat&logo=database)](https://www.trychroma.com/)
 [![Oracle Cloud](https://img.shields.io/badge/OCI-Compute%20Deployed-F80000?style=flat&logo=oracle)](https://www.oracle.com/cloud/)
 
 > **Proyecto desarrollado para el Challenge Alura Latam / Oracle Cloud Infrastructure (OCI)**  
 > Agente multi-herramienta con IA capaz de resolver consultas operativas en lenguaje natural sobre **Captación de Clientes y Proyectos**, **Gestión de Inventario** y **Nómina de Personal/Subcontratistas** para la empresa *Constructora Nova Build SpA*.
 
-## Contexto del Problema
+---
+
+## 🎯 Contexto del Problema
 
 En las empresas de la construcción, la información crítica suele encontrarse dispersa entre catálogos de obras en PDF, hojas de cálculo de insumos de bodega y listas de asistencia o contratos de personal. Esta fragmentación genera pérdida de tiempo operativo y demoras en las respuestas a clientes y directores de obra.
 
-**BuildTech AI Agent** unifica el acceso a estos silos documental mediante un sistema **RAG (Retrieval-Augmented Generation)** y análisis tabular interactivo.
+**BuildTech AI Agent** unifica el acceso a estos silos documentales mediante un sistema **RAG (Retrieval-Augmented Generation)** y análisis tabular interactivo.
 
+---
 
-## Arquitectura del Sistema
+## 📐 Arquitectura del Sistema
 
 El agente utiliza un orquestador basado en la lógica **ReAct (Reasoning + Acting)** que enruta las preguntas del usuario hacia la herramienta especializada según el tipo de consulta:
-
-El siguiente diagrama detalla el flujo de datos y razonamiento del agente orquestador ReAct:
 
 ```mermaid
 flowchart TD
@@ -27,24 +30,18 @@ flowchart TD
     classDef agentStyle fill:#0f766e,stroke:#115e59,stroke-width:2px,color:#fff;
     classDef toolStyle fill:#d97706,stroke:#b45309,stroke-width:2px,color:#fff;
     classDef dataStyle fill:#334155,stroke:#1e293b,stroke-width:2px,color:#fff;
-    classDef llmStyle fill:#6b21a8,stroke:#581c87,stroke-width:2px,color:#fff;
 
     %% Nodos Principales
     Usuario([Usuario / Cliente / Admin]):::userStyle
-    Agente[Agente Orquestador ReAct
-Gemini 1.5 Flash]:::agentStyle
+    Agente[Agente Orquestador ReAct\nGemini 1.5 Flash]:::agentStyle
     
     %% Herramientas
-    ToolRAG[Herramienta 1: RAG PDF
-Proyectos y Catálogo]:::toolStyle
-    ToolInv[Herramienta 2: Consultas CSV
-Inventario de Materiales]:::toolStyle
-    ToolNom[Herramienta 3: Consultas CSV
-Nómina y Personal]:::toolStyle
+    ToolRAG[Herramienta 1: RAG PDF\nProyectos y Catálogo]:::toolStyle
+    ToolInv[Herramienta 2: Consultas CSV\nInventario de Materiales]:::toolStyle
+    ToolNom[Herramienta 3: Consultas CSV\nNómina y Personal]:::toolStyle
     
     %% Almacenamiento y Datos
-    VectorDB[(ChromaDB
-Embeddings text-embedding-004)]:::dataStyle
+    VectorDB[(ChromaDB\nEmbeddings text-embedding-004)]:::dataStyle
     PDFData[catalogo_y_proyectos.pdf]:::dataStyle
     CSVInv[inventario_materiales.csv]:::dataStyle
     CSVNom[nomina_y_personal.csv]:::dataStyle
@@ -88,7 +85,6 @@ Embeddings text-embedding-004)]:::dataStyle
 ## Estructura del Repositorio
 
 ```text
-.
 ├── constructora_data/
 │   ├── catalogo_y_proyectos.pdf   # Documento no estructurado (Catálogo y Obras)
 │   ├── inventario_materiales.csv  # Base estructurada de insumos y proveedores
@@ -96,6 +92,8 @@ Embeddings text-embedding-004)]:::dataStyle
 ├── src/
 │   ├── agente_constructora.py     # Script principal del agente multi-herramienta
 │   └── generate_data.py           # Generador del dataset inicial
+├── constructora_buildtech_agent.ipynb # Notebook ejecutable en Google Colab
+├── DEPLOYMENT.md                  # Guía de despliegue en OCI Compute
 ├── .env.example                   # Plantilla de variables de entorno
 ├── requirements.txt               # Lista de dependencias del proyecto
 ├── .gitignore                     # Archivos excluidos del control de versiones
