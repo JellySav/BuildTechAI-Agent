@@ -86,6 +86,10 @@ flowchart TD
 │   ├── catalogo_y_proyectos.pdf   # Documento no estructurado (Catálogo y Obras)
 │   ├── inventario_materiales.csv  # Base estructurada de insumos y proveedores
 │   └── nomina_y_personal.csv      # Base estructurada de personal y subcontratistas
+├── docs/
+│   └── img/
+│       ├── oci_endpoint_verificated.png # Captura de respuesta del endpoint HTTP
+│       └── oci_systemd_status.png       # Captura del servicio activo en systemd
 ├── src/
 │   ├── agente_constructora.py     # Script principal del agente multi-herramienta
 │   └── generate_data.py           # Generador del dataset inicial
