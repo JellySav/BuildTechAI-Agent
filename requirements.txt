@@ -1,8 +1,9 @@
-langchain
-langchain-google-genai
-langchain-community
-chromadb
+streamlit
 pandas
-pypdf
-python-dotenv
 reportlab
+python-dotenv
+langchain>=0.2.0
+langchain-community
+langchain-google-genai
+chromadb
+pypdf
