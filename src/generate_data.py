@@ -4,7 +4,8 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "constructora_data")
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+DATA_DIR = os.path.join(BASE_DIR, "constructora_data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 def generate_csv_inventario():
@@ -13,14 +14,14 @@ def generate_csv_inventario():
         "Material": ["Cemento Melón", "Fierro Estructural 12mm", "Hormigón Preparado H30", "Ladrillo Cerámico 10x20x30"],
         "Cantidad_Stock": [450, 1200, 85, 3500],
         "Unidad": ["Sacos", "Barras", "m3", "Unidades"],
-        "Ubicacion_Bodega": ["Bodega Central - A1", "Bodega Exterior - B3", "Planta Meclados", "Bodega Central - C2"],
+        "Ubicacion_Bodega": ["Bodega Central - A1", "Bodega Exterior - B3", "Planta Mezclados", "Bodega Central - C2"],
         "Proveedor": ["Distribuidora El Teniente", "Acero Sur SpA", "Concrete Mix Chile", "Cerámicas del Pacífico"],
         "Precio_Unitario_CLP": [4800, 8500, 75000, 650],
         "Precio_Mayorista_CLP": [4200, 7800, 68000, 580],
         "Condicion_Mayorista": ["A partir de 100 sacos", "A partir de 500 barras", "A partir de 50 m3", "A partir de 1000 unidades"]
     }
     df = pd.DataFrame(data)
-    df.to_csv(os.path.join(DATA_DIR, "inventario_materiales.csv"), index=False)
+    df.to_csv(os.path.join(DATA_DIR, "inventario_materiales.csv"), index=False, encoding="utf-8")
     print("✓ inventario_materiales.csv generado.")
 
 def generate_csv_nomina():
@@ -34,7 +35,7 @@ def generate_csv_nomina():
         "Renta_Aproximada_CLP": [2800000, 2100000, 1400000, 2300000]
     }
     df = pd.DataFrame(data)
-    df.to_csv(os.path.join(DATA_DIR, "nomina_y_personal.csv"), index=False)
+    df.to_csv(os.path.join(DATA_DIR, "nomina_y_personal.csv"), index=False, encoding="utf-8")
     print("✓ nomina_y_personal.csv generado.")
 
 def generate_pdf_catalogo():
@@ -74,4 +75,4 @@ if __name__ == "__main__":
     generate_csv_inventario()
     generate_csv_nomina()
     generate_pdf_catalogo()
-    print("¡Generación de datos completada!")
+    print("¡Generación de datos completada exitosamente!")
