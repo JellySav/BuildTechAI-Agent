@@ -22,19 +22,25 @@ if not os.getenv("GOOGLE_API_KEY"):
     st.stop()
 
 # -----------------------------------------------------------------------------
-# 2. CARGA DEL AGENTE (Caché de Streamlit para evitar re-inicializar en cada clic)
+# 2. CARGA DEL AGENTE
 # -----------------------------------------------------------------------------
+# Importamos directamente desde el módulo cargado
+try:
+    from src.agente_constructora import agent_executor
+except Exception as import_error:
+    st.error(f"Error al importar la lógica del agente (`src/agente_constructora.py`): {import_error}")
+    st.info("Asegúrate de que no haya errores de importación en el script principal.")
+    st.stop()
+
 @st.cache_resource(show_spinner="Cargando base de conocimiento y agente AI...")
 def obtener_agente():
-    # Importamos las herramientas y el agente desde la carpeta src
-    from src.agente_constructora import agent_executor
     return agent_executor
 
 try:
     agente = obtener_agente()
 except Exception as e:
     st.error(f"Error al inicializar el agente: {e}")
-    st.info("Asegúrate de haber generado primero los datos ejecutando: `python src/generate_data.py`")
+    st.info("Asegúrate de haber generado primero los datos ejecutando: `python src/generate_data.py` en tu entorno local antes de subir la carpeta `constructora_data`.")
     st.stop()
 
 # -----------------------------------------------------------------------------
