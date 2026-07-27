@@ -83,26 +83,15 @@ agent_executor = AgentExecutor(
     max_iterations=5
 )
 
-# 5. Bucle de ejecución interactivo
+# 5. Bucle de ejecución interactivo (Solo se ejecuta si corres el archivo directo desde la terminal)
 if __name__ == "__main__":
     print("=" * 60)
-    print("BuildTech AI Agent — Nova Build SpA")
-    print("Agente listo para recibir consultas. Escribe 'salir' para terminar.")
+    print("🏗️ BuildTech AI Agent — Nova Build SpA")
     print("=" * 60)
 
     while True:
-        try:
-            user_input = input("\n Consulta: ").strip()
-            if not user_input:
-                continue
-            if user_input.lower() in ["salir", "exit", "quit"]:
-                print("¡Hasta luego!")
-                break
-            
-            response = agent_executor.invoke({"input": user_input})
-            print(f"\n🤖 Respuesta:\n{response['output']}")
-        except KeyboardInterrupt:
-            print("\n\nSaliendo...")
+        user_input = input("\n👤 Consulta: ").strip()
+        if user_input.lower() in ["salir", "exit", "quit"]:
             break
-        except Exception as e:
-            print(f"\n Error al procesar la consulta: {e}")
+        response = agent_executor.invoke({"input": user_input})
+        print(f"\n🤖 Respuesta:\n{response['output']}")
