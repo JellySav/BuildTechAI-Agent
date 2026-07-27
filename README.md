@@ -95,6 +95,7 @@ flowchart TD
 │   └── generate_data.py           # Generador del dataset inicial
 ├── constructora_buildtech_agent.ipynb # Notebook ejecutable en Google Colab
 ├── DEPLOYMENT.md                  # Guía de despliegue en OCI Compute
+├── app.py                         # Archivo principal para el Agente e Interfaz grafica 
 ├── .env.example                   # Plantilla de variables de entorno
 ├── requirements.txt               # Lista de dependencias del proyecto
 ├── .gitignore                     # Archivos excluidos del control de versiones
@@ -157,7 +158,7 @@ Puedes revisarlo a través de su IP pública:
 ```
 Entorno Cloud: Oracle Linux / Ubuntu Server en OCI.
 Estado de la Instancia: Active / Running
-Ip Pública / Endpoint de prueba: http://<IP_PUBLICA_OCI>:8000 
+Ip Pública / Endpoint de prueba: http://<IP_PUBLICA_OCI>:8501 
 ```
 *Nota: Si se consulta posteriormente a la revisión del reto, es probable que no esté disponible debido al ciclo de vida del servidor*
 
