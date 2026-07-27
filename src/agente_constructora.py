@@ -7,8 +7,17 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain.tools import tool
-from langchain.agents import create_react_agent, AgentExecutor
+from langchain.agents import AgentExecutor
 from langchain import hub
+
+# Correcion de importación de create_react_agent
+try:
+    from langchain_classic.agents import create_react_agent
+except ImportError:
+    try:
+        from langchain.agents.react.agent import create_react_agent
+    except ImportError:
+        from langchain.agents import create_react_agent
 
 # 1. Cargar variables de entorno (.env)
 load_dotenv()
